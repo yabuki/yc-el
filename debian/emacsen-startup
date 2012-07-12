@@ -1,0 +1,49 @@
+;; -*-emacs-lisp-*-
+;;
+;; Emacs startup file for the Debian yc-el package
+;;
+;; Originally contributed by Nils Naumann <naumann@unileoben.ac.at>
+;; Modified by Dirk Eddelbuettel <edd@debian.org>
+;; Adapted for dh-make by Jim Van Zandt <jrv@vanzandt.mv.com>
+
+;; The yc-el package follows the Debian/GNU Linux 'emacsen' policy and
+;; byte-compiles its elisp files for each 'emacs flavor' (emacs19,
+;; xemacs19, emacs20, xemacs20...).  The compiled code is then
+;; installed in a subdirectory of the respective site-lisp directory.
+;; We have to add this to the load-path:
+
+(let ((package-dir (concat "/usr/share/"
+                           (symbol-name flavor)
+                           "/site-lisp/yc-el")))
+  (when (file-directory-p package-dir)
+    (if (fboundp 'debian-pkg-add-load-path-item)
+      (debian-pkg-add-load-path-item package-dir)
+      (setq load-path (cons package-dir load-path))
+    )
+  )
+  (if (not (file-exists-p (concat package-dir "/yc.elc")))
+    (message "Package yc-el not fully installed.  Skipping setup.") ;; ----- Not Found
+    ;; ----- Found
+    (progn
+      (message "Package yc-el fully installed.")
+      ;
+      ; Do you have mule(MULti-ingual Enancement to GNU Emacs) feature?
+      ;
+      (message "before checking MULE feature")
+      (when (featurep 'mule)
+        (progn
+          (global-set-key "\M-\ " 'yc-mode)
+          (setq yc-stop-chars "(){}<>")
+          (setq yc-server-host "unix")
+          (setq yc-use-color t)
+          (setq yc-icanna-path "/usr/lib/yc-el/icanna")
+           
+          ;; comment the following 3 lines to not to activate yc-el per default.
+          (setq yc-connect-server-at-startup nil)
+          (load-library "yc")
+          (force-yc-input-mode)
+        )
+      )
+    )
+  )
+)

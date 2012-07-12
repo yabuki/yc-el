@@ -1,0 +1,4 @@
+#!/bin/bash
+# simple test
+
+ldd /usr/lib/yc-el/icanna

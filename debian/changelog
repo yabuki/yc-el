@@ -1,0 +1,431 @@
+yc-el (5.0.0-5) unstable; urgency=low
+
+  * Correct DEP-3 header (Cloeses: #681366)
+
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Fri, 13 Jul 2012 02:21:51 +0900
+
+yc-el (5.0.0-4) unstable; urgency=low
+
+  * Apply bug fix which Upstream fixed bug. (version 5.2.1)
+
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Tue, 12 Jul 2012 01:09:51 +0900
+
+yc-el (5.0.0-3) unstable; urgency=low
+
+  * Change section
+  * Improve debian/patches --- names
+
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Tue, 11 Jul 2012 07:42:51 +0900
+
+yc-el (5.0.0-2) unstable; urgency=low
+
+  [ Yukiharu YABUKI ]
+  * remove lintian warnning
+
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Mon, 10 Jul 2012 02:05:51 +0900
+
+yc-el (5.0.0-1) unstable; urgency=low
+
+  [ Yukiharu YABUKI ]
+  * New Upstream
+  * Removed Dependency of Emacs 22 (closes: #577468)
+  * Added Dependency of Emacs 23
+  * Adapting for Emacs 23 (Thanks Kouichi ONO-san)
+  * Converted to source format version 3
+
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Wed, 21 Jul 2010 14:30:51 +0900
+
+yc-el (4.0.13-9) unstable; urgency=low
+
+  [ Yukiharu YABUKI ]
+  * Update Standards-version (3.8.2)
+   - (1) update compat = 5
+   - (2) ignore rm error in Makefile. When rm does not find target.
+   - (3) add copyright year in debian/copyright.
+   - (4) fix lintian error in debian/rules
+   - (5) Use dh_prep instead of dh_clean -k.
+   - (6) Update Build-Depends debhelper version in debian/control.
+  
+ -- Yukiharu YABUKI <yabuki@netfort.gr.jp>  Sun, 28 Jun 2009 01:02:54 +0900
+
+yc-el (4.0.13-8) unstable; urgency=low
+
+  * fixed: yc-el handling nostrip build option. (closes: #438354)
+    - (1) Add CFLAGS in Makefile.
+    - (2) Remove -s(strip) option from install command in Makefile.
+    - (3) Add ifneq sentense in Makefile.
+    - (4) Correct install binary path in Makefile.
+  * fixed: yc-el prefer emacs22 (closes: #433978)
+    - I modified 'Depends:' in controle file.
+  * other minor fixes.
+    - Correct vaild email address in chagelog.
+  
+ -- Yukiharu YABUKI <yabuki@netfort.gr.jp>  Sun, 25 Nov 2007 00:30:03 +0900
+
+yc-el (4.0.13-7) unstable; urgency=low
+
+  * fixed: re-fixed install script fails when it is invoked repeatedly
+    - correct wrong parentheis.
+    (closes: #403745)
+
+ -- Yukiharu YABUKI <yabuki@netfort.gr.jp>  Fri, 22 Dec 2006 06:57:05 +0900
+
+yc-el (4.0.13-6) unstable; urgency=low
+
+  * fixed install script fails when it is invoked repeatedly
+    - Appy patch by hand.
+    (closes: #403745)
+  * Some Changes
+    - Modify 'control' file
+    -- We do not have xeamcs20 in offical debian repository. Delete xemacs20-*
+    from Depends line.
+    -- emacs-snapshot move in depends line.
+    - Modified emacsen-install script.
+
+ -- Yukiharu YABUKI <yabuki@netfort.gr.jp>  Wed, 20 Dec 2006 01:38:00 +0900
+
+yc-el (4.0.13-5) unstable; urgency=low
+
+  * Add new dependency for emacs-snapshot
+    (closes: #403151)
+  * fixed startup fails if the package is removed but not purged
+    - add check sentence in emacscen-startup
+    (closes: #403283)
+  * fixed startup doesn't use debian-pkg-add-load-path-item to set
+    - I use debian-pkg-add-load-path-item if that function existed.
+    (closes: #403284)
+  * fixed install script loads site startup files redundantly
+    - Be quite! :-) add '-no-site-file' flag
+    (closes: #403285)
+  * fixed cannot find the source file by find-function, etc
+    - make symlink (exsample:ln -fs /usr/share/emacs/site-lisp/${PACKAGE/yc.el
+    /usr/share/${FLAVOR}/site-lisp/${PACKAGE}/)
+    (closes: #403286)
+
+ -- Yukiharu YABUKI <yabuki@netfort.gr.jp>  Sun, 17 Dec 2006 09:34:19 +0900
+
+yc-el (4.0.13-4) unstable; urgency=low
+
+  * Change Maintner Mail Address
+   - I can not use old mail address.
+
+ -- Yukiharu YABUKI <yabuki@netfort.gr.jp>  Mon, 26 Jun 2006 19:54:08 +0900
+
+yc-el (4.0.13-3) unstable; urgency=low
+
+  [ Yukiharu YABUKI ]
+  * remake yc-el package for adapting DH_COMPAT=4
+  - execute dh_make command for yc-el in Sarge.
+  - adapt emacscen scripts (init/install/remove).
+  - refine emacsen-init script for dh_make in Sarge.
+  -- remove /etc/<flavour>/site-start.d/yc-el/50yc-el-init.el .
+  -- add /etc/emacs/site-start.d/yc-el/50yc-el.el .
+  - remake regular expression for uupdate command.
+  - Add conflict with xemacs21-nomule and xemacs21-gnome-nomule .
+    (yc-el needs MULE supported emacsen.)
+  - Add /usr/share/doc/yc-el/NEWS.Debian which is upgrade notice.
+  - When XEmacs21 point xemacs21*-nomule with alternatives then you install
+    XEmacs21 with mule feature, yc-el package do 'byte compile' yc.el.
+  * yc-el support configuration - preserve configuration
+    (/etc/<flavour>/yc-el/50yc-el)
+    (closes: #351463)
+
+  [ Junichi Uekawa ]
+  * add pbuilder test for basic installation test.
+  - 1: icanna is ldd'able.
+  - 2: yc-version is set
+
+ -- Junichi Uekawa <dancer@debian.org>  Sat, 11 Feb 2006 10:43:23 +0900
+
+yc-el (4.0.13-2) unstable; urgency=low
+
+  * Depends includes xemacs21-gnome-mule* variants.
+    (closes: #270048)
+
+ -- Junichi Uekawa <dancer@debian.org>  Sun,  5 Sep 2004 15:41:03 +0900
+
+yc-el (4.0.13-1) unstable; urgency=low
+
+  * New upstream release
+  - Fixes problem with autoloading yc-el. (do not try to connect to cannaserver on startup)
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+  * Changed configuration to load-library YC as 4.0.11-1.
+    Note: toggle-input-method will default to japanese-yc for all users.
+
+ -- Junichi Uekawa <dancer@debian.org>  Sat, 24 Jul 2004 01:25:32 +0900
+
+yc-el (4.0.11-2) unstable; urgency=low
+
+  * Do not autoload yc-el; it is impossible to reconfigure target canna server.
+    (closes: #257878)
+    It is impossible to configure canna server configuration when 
+    yc was autoloaded.
+
+ -- Junichi Uekawa <dancer@debian.org>  Tue,  6 Jul 2004 22:36:35 +0900
+
+yc-el (4.0.11-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+  * Autoload yc-el. yc-el-init.el calls load-library to load yc by
+    default. (closes: #256227)
+  
+ -- Junichi Uekawa <dancer@debian.org>  Sat, 26 Jun 2004 21:04:28 +0900
+
+yc-el (4.0.10-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+
+ -- Junichi Uekawa <dancer@debian.org>  Thu, 10 Jun 2004 09:06:35 +0900
+
+yc-el (4.0.8-1) unstable; urgency=low
+
+  * New upstream release
+  - fixes display corruption problem.
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+
+ -- Junichi Uekawa <dancer@debian.org>  Sat, 20 Mar 2004 19:06:42 +0900
+
+yc-el (4.0.7-1) unstable; urgency=low
+
+  * New upstream release
+  - fixes issues on translating roma-ji  tt -> small tsu
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+ 
+ -- Junichi Uekawa <dancer@debian.org>  Fri, 20 Feb 2004 08:13:43 +0900
+
+yc-el (4.0.6-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+  * debian/control: Remove reference to emacs20 package which was removed.
+    Bug fix: "Half-broken dependency on emacs20", thanks to Martin
+    Michlmayr (Closes: #232802).
+
+ -- Junichi Uekawa <dancer@debian.org>  Wed, 18 Feb 2004 07:17:17 +0900
+
+yc-el (4.0.5-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+  * Install newly added upstream documentation:
+  - ChangeLog: the upstream changelog
+  - KEY-BINDINGS: key bindings documentation in Japanese.
+
+ -- Junichi Uekawa <dancer@debian.org>  Fri, 16 Jan 2004 07:54:14 +0900
+
+yc-el (4.0.4-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+
+ -- Junichi Uekawa <dancer@debian.org>  Sat, 27 Dec 2003 12:14:17 +0900
+
+yc-el (4.0.3-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+
+ -- Junichi Uekawa <dancer@debian.org>  Sat, 13 Dec 2003 08:31:02 +0900
+
+yc-el (4.0.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Standards-Version: 3.6.1, just update.
+  * Add documentation yc.html from upstream web page.
+    'debian/rules download-web' will try to update to new version.
+  * Updated documentation "yc.html" from
+    http://www.ceres.dti.ne.jp/~knak/yc.html
+  * Update README.Debian with notes on the documentation.
+
+ -- Junichi Uekawa <dancer@debian.org>  Thu, 11 Dec 2003 23:25:45 +0900
+
+yc-el (4.0.1-2) unstable; urgency=low
+
+  * Do not check for orig.tar.gz existence in build process to fix build failure.
+    (closes: #220850)
+
+ -- Junichi Uekawa <dancer@debian.org>  Sat, 15 Nov 2003 16:38:50 +0900
+
+yc-el (4.0.1-1) unstable; urgency=low
+
+  * New upstream release
+  - upstream incorporated icanna path patch.
+
+ -- Junichi Uekawa <dancer@debian.org>  Mon, 10 Nov 2003 08:02:32 +0900
+
+yc-el (4.0.0-1) experimental; urgency=low
+
+  * New upstream release
+  - upstream is distributing with a tarball, use that.
+  - Now able to connect to UNIX domain sockets
+  * Architecture is any not all, since it uses a C helper program 
+    for the socket connection.
+  * patch to allow specifying icanna path, and install 'icanna' to 
+    /usr/lib/yc-el.
+  * README.Debian: update
+  * Change default to unix domain socket
+
+ -- Junichi Uekawa <dancer@debian.org>  Sun,  9 Nov 2003 08:44:52 +0900
+
+yc-el (3.5.8-1) unstable; urgency=low
+
+  * New upstream version
+  * Standards-Version: 3.5.10
+
+ -- Junichi Uekawa <dancer@debian.org>  Sun, 15 Jun 2003 15:00:08 +0900
+
+yc-el (3.5.7-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Junichi Uekawa <dancer@debian.org>  Wed, 28 May 2003 07:44:13 +0900
+
+yc-el (3.5.5-1) unstable; urgency=low
+
+  * New upstream version
+  - fixes fence-mode being dark when background is dark.
+
+ -- Junichi Uekawa <dancer@debian.org>  Thu,  8 May 2003 02:29:37 +0900
+
+yc-el (3.5.4-1) unstable; urgency=low
+
+  * New upstream version.
+  - fixes typo in set-face-highlight-p
+
+ -- Junichi Uekawa <dancer@debian.org>  Thu,  1 May 2003 07:24:16 +0900
+
+yc-el (3.5.3-1) unstable; urgency=low
+
+  * New upstream version
+  * fix copyright file.
+
+ -- Junichi Uekawa <dancer@debian.org>  Sun, 27 Apr 2003 21:49:21 +0900
+
+yc-el (3.5.0-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Junichi Uekawa <dancer@debian.org>  Mon, 25 Nov 2002 22:01:23 +0900
+
+yc-el (3.4.13-1) unstable; urgency=low
+
+  * New upstream version
+  - fixes problem with debug symbols being output to minibuffer.
+
+ -- Junichi Uekawa <dancer@debian.org>  Sun, 27 Oct 2002 15:51:32 +0900
+
+yc-el (3.4.12-1) unstable; urgency=low
+
+  * New upstream version
+  * Standards-Version: 3.5.7
+
+ -- Junichi Uekawa <dancer@debian.org>  Tue, 15 Oct 2002 20:34:53 +0900
+
+yc-el (3.4.11-1) unstable; urgency=low
+
+  * New upstream version
+  - fixes bug in input of characters which are defsymboled in fence-mode.
+
+ -- Junichi Uekawa <dancer@debian.org>  Thu, 10 Oct 2002 12:47:36 +0900
+
+yc-el (3.4.10-1) unstable; urgency=low
+
+  * New upstream version
+  * Non-native package (it was made into native package accidentally)
+    add a rule in Debian-rules to facilitate creation of upstream tar.gz
+
+ -- Junichi Uekawa <dancer@debian.org>  Wed,  9 Oct 2002 16:34:48 +0900
+
+yc-el (3.4.9-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Junichi Uekawa <dancer@debian.org>  Mon,  7 Oct 2002 18:05:13 +0900
+
+yc-el (3.4.6-2) unstable; urgency=low
+
+  * README.Debian: Update notes so that it is possible to set up yc-el 
+    and canna
+
+ -- Junichi Uekawa <dancer@debian.org>  Mon, 13 May 2002 15:20:59 +0900
+
+yc-el (3.4.6-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Junichi Uekawa <dancer@debian.org>  Wed,  1 May 2002 20:08:48 +0900
+
+yc-el (3.4.1-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Junichi Uekawa <dancer@debian.org>  Sat, 30 Mar 2002 15:46:21 +0900
+
+yc-el (3.3.3-1) unstable; urgency=low
+
+  * New Maintainer. (closes: #74643)
+  * New upstream version
+  * Standards-Version: 3.5.6
+  * Updated debian/README.Debian, and debian/copyright, and
+    debian/control files
+
+ -- Junichi Uekawa <dancer@debian.org>  Tue, 25 Dec 2001 23:36:01 +0900
+
+yc-el (2.0.15-3) unstable; urgency=low
+
+  * Change maintainer address to packages@qa.debian.org.
+  * Fix typo in description, and improve the grammar while I'm at it
+    (closes: #120908).
+  * Use Build-Depends-Indep rather than Build-Depends.
+
+ -- Colin Watson <cjwatson@debian.org>  Fri, 30 Nov 2001 18:01:06 +0000
+
+yc-el (2.0.15-2) unstable; urgency=low
+
+  * Added build dependencies.
+  * Standards-Version: 3.5.1
+
+ -- Adrian Bunk <bunk@fs.tum.de>  Sat, 17 Feb 2001 17:41:43 +0100
+
+yc-el (2.0.15-1.1) unstable; urgency=low
+
+  * debian/control: Maintainer: Debian QA Group <debian-qa@lists.debian.org>
+
+ -- Takuo KITAME <kitame@northeye.org>  Thu, 31 Aug 2000 11:36:23 +0900
+
+yc-el (2.0.15-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Takuo KITAME <kitame@northeye.org>  Thu, 29 Jun 2000 05:56:51 +0900
+
+yc-el (0.0.19991014-3) unstable; urgency=low
+
+  * emacsen-common: modified.
+
+ -- Takuo KITAME <kitame@northeye.org>  Tue,  2 Nov 1999 04:06:01 +0900
+
+yc-el (0.0.19991014-2) unstable; urgency=low
+
+  * emacsen-install: a little fix.
+
+ -- Takuo KITAME <kitame@northeye.org>  Fri, 22 Oct 1999 05:02:36 +0900
+
+yc-el (0.0.19991014-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Takuo KITAME <kitame@northeye.org>  Fri, 15 Oct 1999 12:59:12 +0900
+
+

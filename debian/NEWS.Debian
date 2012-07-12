@@ -1,0 +1,37 @@
+Dear yc-el users.
+
+2010-Jul-21 Yukiharu YABUKI <yyabuki@debian.org>
+
+Time files like an arrow. Original yc-el has not
+adapted to Emacs 23 yet. Shuichi ONO-san gave me
+Emacs 23 patch for yc-4.0.13.
+
+I would like to work well yc-el on Emacs23 and XEmacs.
+I merged ONO-san's patch and added cases for Emacs23 and
+others. 
+
+Unfortunately I found a bug. When you convert from hirakana
+to kanji, I can see only first kanji charactor. I tested on
+XEmacs. It was okay. This bug happend on Emacs 23.
+
+If you find how to fix this problem, please send patch.
+Please submit this bug report to bugs.debian.org
+
+Best
+Yukiharu.
+
+2006-Feb-03 YABUKI Yukiharu <yabuki@netfort.gr.jp>
+
+yc-el_4.0.13-2_${Arch}.deb or earlier has init script which is 
+"/etc/${flavor}/site-start.d/yc-el/50yc-el-init.el".
+
+yc-el_4.0.13-3_${Arch}.deb or later has init script which is
+"/etc/emacs/site-start.d/yc-el/50yc-el.el".
+
+When you upgrade from "yc-el_4.0.13-2_${Arch}.deb" or earlier to
+"yc-el_4.0.13-3_${Arch}.deb" or later, You lose customized settings
+in 50yc-el-init.el. But yc-el_4.0.13-3_${Arch}.deb can
+preserve customized settings in 50yc-el.el
+
+When Debian stable users upgrade from Sarge to Etch, people mention this
+document.

@@ -1,0 +1,27 @@
+#!/bin/sh -e
+# /usr/lib/emacsen-common/packages/remove/yc-el
+
+FLAVOR=$1
+PACKAGE=yc-el
+
+if [ "X${FLAVOR}" = "X" ]; then
+    echo Need argument to determin FLAVOR of emacs;
+    exit 1;
+fi
+
+if [ "X${PACKAGE}" = "X" ]; then
+    echo Internal error: need package name;
+    exit 1;
+fi
+
+#;; 2005/12/15 we have emacs21 in Sarge. I think that yc-el package do not need to check emacs19
+
+if [ ${FLAVOR} != emacs ]; then
+    if test -x /usr/sbin/install-info-altdir; then
+        echo remove/${PACKAGE}: removing Info links for ${FLAVOR}
+        install-info-altdir --quiet --remove --dirname=${FLAVOR} /usr/info/yc-el.info.gz
+    fi
+
+    echo remove/${PACKAGE}: purging byte-compiled files for ${FLAVOR}
+    rm -rf /usr/share/${FLAVOR}/site-lisp/${PACKAGE}
+fi

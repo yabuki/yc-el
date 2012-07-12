@@ -1,0 +1,7 @@
+#!/bin/bash
+# check that yc-version is available
+apt-get install -y --force-yes emacs21
+
+emacs -batch -eval '(progn (load-library "yc") (message (concat "YC_VERSION: " yc-version)))' 2>&1 |\
+    grep YC_VERSION
+

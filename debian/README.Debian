@@ -1,0 +1,39 @@
+yc-el for Debian
+----------------
+
+On using yc.el, it is recommended to insert following line in
+your ~/.emacs.
+
+(load "yc") ; load yc
+(global-yc-mode) ; globally enable ANK-Kanji translation
+
+(these configurations are no longer required since 4.0.13-1, 
+yc-el will work out-of-the-box)
+
+
+and optionally:
+(setq yc-use-color t)
+(setq yc-use-fence t)
+(global-set-key "\M-\ " 'yc-mode)
+(setq yc-server-host "your canna server host") ;; default "unix"
+
+
+Using yc and canna over network
+===============================
+
+To use YC over network, you will need to reconfigure canna
+so that it will allow connections from the network, 
+and set 
+
+(setq yc-server-host "cannaserver's hostname")
+
+
+Documentation
+=============
+
+Documentation in Japanese is available as 
+  /usr/share/doc/yc-el/yc.html
+  It includes the changelog in Japanese.
+
+
+ -- Yukiharu YABUKI <yabuki@netfort.gr.jp>, Sat, 10 Dec 2005 14:17:10 +0900

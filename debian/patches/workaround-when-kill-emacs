@@ -1,0 +1,38 @@
+Description: Bug work around, When emacs killed
+ This patch is same modified as 5.2.0 -> 5.2.1.
+ This patch came from upstream's modification.
+ .
+Author: Yukiharu YABUKI <yyabuki@debian.org>
+---
+Origin: upstream
+Forwarded: not-needed
+Reviewed-By: Yukiharu YABUKI <yyabuki@debian.org>
+Last-Update: 2012-07-13
+Index: yc-el-5.0.0/yc-5.0.0.el
+===================================================================
+--- yc-el-5.0.0.orig/yc-5.0.0.el	2010-07-21 14:20:52.000000000 +0900
++++ yc-el-5.0.0/yc-5.0.0.el	2012-07-12 01:00:59.000000000 +0900
+@@ -1,4 +1,4 @@
+-;;; yc.el by knak 2008.02.13
++;;; yc.el by knak 2010.10.01
+ 
+ ;;; YC は "Yet another Canna client" の略です。
+ ;;; 頭文字をとると YACC になっちゃうんだもん (;_;)
+@@ -2000,8 +2000,8 @@
+ ;; 終了時関数
+ (defun yc-close ()
+   (when yc-context
+-    ;; deleted follow line 01/12/29 by matz@ruby-lang.org
+-;    (set-process-sentinel yc-server nil)
++    ;; comment in 10/10/01 by knak@cerse.dti.ne.jp
++    (set-process-sentinel yc-server nil)
+     (condition-case nil
+ 	(yc-finalize)
+       (yc-trap-server-down nil))
+@@ -4055,5 +4055,5 @@
+ ;  (force-yc-input-mode)
+ ;  )
+ 
+-(defconst yc-version "5.0.0")
++(defconst yc-version "5.2.1")
+ (provide 'yc)

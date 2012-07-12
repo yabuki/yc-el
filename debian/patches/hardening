@@ -1,0 +1,41 @@
+Description: Apply hardening
+ This program contain icanna which is C program. icanna should be hardening
+ .
+ yc-el (5.0.0-2) unstable; urgency=low
+ .
+   [ Yukiharu YABUKI ]
+   * remove lintian warnning
+Author: Yukiharu YABUKI <yyabuki@debian.org>
+
+---
+Origin: vendor
+Forwarded: not-needed
+Reviewed-By: Yukiharu YABUKI <yyabuki@debian.org>
+Last-Update: 2012-07-11
+
+--- yc-el-5.0.0.orig/Makefile
++++ yc-el-5.0.0/Makefile
+@@ -36,9 +36,13 @@ INSTALL_PATH = $(prefix)/usr/lib/yc-el
+ elc = yc.elc
+ PROGRAM = icanna$(exesuffix)
+ OBJS = icanna.o
+-CFLAGS = -g
++#CFLAGS = -g
++CFLAGS = -Wall -O2
++CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
+ CC = gcc
+ INSTALL = install
++CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
++LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
+ 
+ #ifeq ($(DISTRO), Debian)
+ all: $(PROGRAM)
+@@ -54,7 +58,7 @@ all: $(PROGRAM)
+ 
+ 
+ $(PROGRAM): $(OBJS)
+-	$(CC) -o $(PROGRAM) $(OBJS)
++	$(CC) $(CPPFLAGS) $(CFLANGS) $(LDFLAGS) -o $(PROGRAM) $(OBJS)
+ 
+ clean:
+ #ifeq ($(DISTRO), Debian)

@@ -1,0 +1,11 @@
+version=3
+
+# Uncomment to examine a Webpage 
+# <Webpage URL> <string match>
+#http://www.example.com/downloads.php yc-el-(.*)\.tar\.gz
+
+# Uncomment to examine a Webserver directory
+#http://www.ceres.dti.ne.jp/~knak/yc-4.0.13.tar.gz
+#http://www.ceres.dti.ne.jp/~knak/yc-(.*)\.(.*)\.(.*)\.tar\.gz debian uupdate
+http://www.ceres.dti.ne.jp/~knak/yc.html \
+  yc-([\d+\.]*).tar.gz debian uupdate

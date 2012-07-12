@@ -1,0 +1,34 @@
+This package was originally debianized by Takuo KITAME <kitame@northeye.org>
+ on
+Thu, 14 Oct 1999 21:58:06 +0900.
+And then taken up by Junichi Uekawa <dancer@debian.org>
+on 25 Dec 2001.
+
+This package was re-debianized by Yukiharu YABUKI <yabuki@netfort.gr.jp> on
+Sat, 10 Dec 2005 14:17:10 +0900.
+
+It was downloaded from <URL:http://www.ceres.dti.ne.jp/~knak/yc.html>
+
+Copyright Holder:  Kaoru Nakajima <knak@ceres.dti.ne.jp>
+Copyright: 1999 - Kaoru Nakajima
+
+License:
+
+   This package is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+
+   This package is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this package; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  
+   02110-1301  USA.
+
+On Debian systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL'.
+
