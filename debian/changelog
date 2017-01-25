@@ -1,3 +1,9 @@
+yc-el (5.0.0-6) unstable; urgency=low
+
+  * Add Dependcy emacs24 (Closes: #764161)
+
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Mon, 06 Oct 2014 09:48:51 +0900
+
 yc-el (5.0.0-5) unstable; urgency=low
 
   * Correct DEP-3 header (Cloeses: #681366)

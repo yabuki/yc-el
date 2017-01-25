@@ -3,11 +3,11 @@ Section: lisp
 Priority: optional
 Maintainer: Yukiharu YABUKI <yyabuki@debian.org>
 Build-Depends: debhelper (>= 7.0.0)
-Standards-Version: 3.9.3
+Standards-Version: 3.9.6
 
 Package: yc-el
 Architecture: any
-Depends: emacs23 | emacs21 | xemacs21-mule | xemacs21-mule-canna-wnn | xemacs21-gnome-mule-canna-wnn | xemacs21-gnome-mule | emacs-snapshot, ${shlibs:Depends}, ${misc:Depends}
+Depends: emacs24 | emacs23 | emacs21 | xemacs21-mule | xemacs21-mule-canna-wnn | xemacs21-gnome-mule-canna-wnn | xemacs21-gnome-mule | emacs-snapshot, ${shlibs:Depends}, ${misc:Depends}
 Suggests: canna
 Description: Yet another Canna client for Emacsen
  Canna client for emacs21 or xemacs with MULE support.
