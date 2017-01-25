@@ -1,3 +1,9 @@
+yc-el (5.0.0-7) unstable; urgency=low
+
+  * Add Dependcy emacs25 (Closes: #852100)
+
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Wed, 25 Jan 2017 19:22:51 +0900
+
 yc-el (5.0.0-6) unstable; urgency=low
 
   * Add Dependcy emacs24 (Closes: #764161)

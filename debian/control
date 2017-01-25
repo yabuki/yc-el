@@ -7,7 +7,7 @@ Standards-Version: 3.9.6
 
 Package: yc-el
 Architecture: any
-Depends: emacs24 | emacs23 | emacs21 | xemacs21-mule | xemacs21-mule-canna-wnn | xemacs21-gnome-mule-canna-wnn | xemacs21-gnome-mule | emacs-snapshot, ${shlibs:Depends}, ${misc:Depends}
+Depends: emacs25-nox | emacs25 | emacs24 | emacs23 | emacs21 | xemacs21-mule | xemacs21-mule-canna-wnn | xemacs21-gnome-mule-canna-wnn | xemacs21-gnome-mule | emacs-snapshot, ${shlibs:Depends}, ${misc:Depends}
 Suggests: canna
 Description: Yet another Canna client for Emacsen
  Canna client for emacs21 or xemacs with MULE support.
@@ -15,3 +15,12 @@ Description: Yet another Canna client for Emacsen
  emacsen without direct support for Canna.
  .
  Canna is a Japanese input method.
+
+Package: yc-el-dbgsym
+Architecture: all
+Depends: emacs25-nox | emacs25 | emacs24 | emacs23 | emacs21 | xemacs21-mule | xemacs21-mule-canna-wnn | xemacs21-gnome-mule-canna-wnn | xemacs21-gnome-mule | emacs-snapshot, ${shlibs:Depends}, ${misc:Depends}
+Description: Debug package:Yet another Canna client for Emacsen
+ This is yc-el debug package. You might wonder that why yc-el
+ has debug package.
+ Some Emacs can not communicate with canna domain soket.
+ icanna.c helps comminucating with canna domain socket.
