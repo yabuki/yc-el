@@ -1,8 +1,10 @@
-yc-el (5.0.0-7) unstable; urgency=low
+yc-el (5.0.0-7) unstable; urgency=medium
 
-  * Add Dependcy emacs25 (Closes: #852100)
+  * Add Dependency emacs25 (closes: #852100)
+  * dbgsym package
+  * added debug compile option
 
- -- Yukiharu YABUKI <yyabuki@debian.org>  Wed, 25 Jan 2017 19:22:51 +0900
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Thu, 26 Jan 2017 00:09:33 +0900
 
 yc-el (5.0.0-6) unstable; urgency=low
 

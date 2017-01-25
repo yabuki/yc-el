@@ -1,4 +1,4 @@
-;;; yc.el by knak 2008.02.13
+;;; yc.el by knak 2010.10.01
 
 ;;; YC は "Yet another Canna client" の略です。
 ;;; 頭文字をとると YACC になっちゃうんだもん (;_;)
@@ -2000,8 +2000,8 @@ OBJ を返却する。"
 ;; 終了時関数
 (defun yc-close ()
   (when yc-context
-    ;; deleted follow line 01/12/29 by matz@ruby-lang.org
-;    (set-process-sentinel yc-server nil)
+    ;; comment in 10/10/01 by knak@cerse.dti.ne.jp
+    (set-process-sentinel yc-server nil)
     (condition-case nil
 	(yc-finalize)
       (yc-trap-server-down nil))
@@ -4055,5 +4055,5 @@ point から行頭方向に同種の文字列が続く間を漢字変換します。
 ;  (force-yc-input-mode)
 ;  )
 
-(defconst yc-version "5.0.0")
+(defconst yc-version "5.2.1")
 (provide 'yc)
