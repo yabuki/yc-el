@@ -1,5 +1,6 @@
 usr/share/emacs/site-lisp/yc-el
 usr/lib/yc-el
+usr/lib/debug/.build-id/
 usr/share/doc/yc-el
 usr/share/lintian/overrides/
 
