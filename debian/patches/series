@@ -2,4 +2,3 @@ new-upstream-5.0.0
 hardening
 workaround-when-kill-emacs
 emacs25-related
-added-compile-flag
