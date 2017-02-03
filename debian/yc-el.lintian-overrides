@@ -1,1 +1,2 @@
 yc-el: hardening-no-fortify-functions usr/lib/yc-el/icanna
+yc-el: debug-package-should-be-named-dbg
