@@ -3,8 +3,9 @@ yc-el (5.0.0-7) unstable; urgency=medium
   * Added Dependency emacs25 (closes: #852100)
   * Do work for dbgsym package
   * Added debug compile option
+  * tidy up debian/rules
 
- -- Yukiharu YABUKI <yyabuki@debian.org>  Thu, 26 Jan 2017 00:09:33 +0900
+ -- Yukiharu YABUKI <yyabuki@debian.org>  Fri, 03 Feb 2017 21:09:33 +0900
 
 yc-el (5.0.0-6) unstable; urgency=low
 

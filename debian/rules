@@ -2,73 +2,8 @@
 # -*- makefile -*-
 
 # Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
+export DH_VERBOSE=1
 
-CFLAGS = -Wall -g
+%:
+	dh $@
 
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
-else
-	CFLAGS += -O2
-endif
-
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-
-	touch configure-stamp
-
-
-build: build-arch build-indep
-build-arch: build-stamp
-build-indep: build-stamp
-
-build-stamp: configure-stamp 
-	dh_testdir
-
-	$(MAKE)
-
-	touch build-stamp
-
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp configure-stamp
-
-	[ ! -f Makefile ] || $(MAKE) clean
-
-	dh_clean 
-
-install: build
-	dh_testdir
-	dh_testroot
-# It was deprecated.	dh_clean -k 
-	dh_prep 
-	dh_installdirs
-
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/yc-el
-
-
-binary-indep: build install
-
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs ChangeLog
-	dh_installdocs 
-	dh_installexamples
-	dh_installemacsen
-	dh_installman
-	dh_link
-	dh_strip --automatic-dbgsym
-	dh_compress
-	dh_fixperms
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_lintian
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
