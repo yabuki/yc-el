@@ -16,10 +16,3 @@ Description: Yet another Canna client for Emacsen
  .
  Canna is a Japanese input method.
 
-Package: yc-el-dbgsym
-Architecture: all
-Depends: emacs25-nox | emacs25 | emacs24 | emacs23 | emacs21 | xemacs21-mule | xemacs21-mule-canna-wnn | xemacs21-gnome-mule-canna-wnn | xemacs21-gnome-mule | emacs-snapshot, ${misc:Depends}
-Description: Debug package for yc-el package
- This package contains debug symbol of icanna.c
- Some emacs can not communicate with Canna's unix domain socket.
- icanna enable them to communicate with unix domain socket.
