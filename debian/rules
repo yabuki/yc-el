@@ -60,7 +60,7 @@ binary-arch: build install
 	dh_installemacsen
 	dh_installman
 	dh_link
-	dh_strip
+	dh_strip --automatic-dbgsym
 	dh_compress
 	dh_fixperms
 	dh_installdeb
